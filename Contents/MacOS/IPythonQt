@@ -1,0 +1,18 @@
+#!/usr/bin/python
+
+import os
+
+executable = '/usr/local/bin/ipython'
+
+arguments = [
+    executable,
+    'qtconsole',
+    '--colors=linux',
+    '--ConsoleWidget.font_size=12',
+    '--ConsoleWidget.font_family="Monaco"',
+]
+
+os.environ["PYTHONPATH"] = os.getenv("PYTHONPATH", "")
+os.environ["PYTHONPATH"] += ':/usr/local/lib/python2.7/site-packages'
+
+os.execve(executable, arguments, os.environ)
